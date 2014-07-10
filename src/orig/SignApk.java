@@ -16,6 +16,7 @@
 
 package orig;
 
+import java.io.Console;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
@@ -93,18 +94,17 @@ class SignApk {
     }
 
     /**
-     * Reads the password from stdin and returns it as a string.
+     * Reads the password from console and returns it as a string.
      *
      * @param keyFile The file containing the private key.  Used to prompt the user.
      */
     private static String readPassword(File keyFile) {
-        // TODO: use Console.readPassword() when it's available.
-        System.out.print("Enter password for " + keyFile + " (password will not be hidden): ");
-        System.out.flush();
-        BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
-        try {
-            return stdin.readLine();
-        } catch (IOException ex) {
+        Console console;
+        char[] pwd;
+        if((console = System.console()) != null &&
+           (pwd = console.readPassword("[%s]", "Enter password for " + keyFile)) != null){
+            return String.valueOf(pwd);
+        } else {
             return null;
         }
     }
