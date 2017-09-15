@@ -19,8 +19,8 @@ Verify signature.
 Removed `"Created-By", "1.0 (Android SignApk)"` from upstream SignApk.
 
 ### Download
-- [sign.jar](https://github.com/appium/sign/raw/master/dist/sign.jar)
-- [signapk.jar](https://github.com/appium/sign/raw/master/dist/signapk.jar)
+- [sign.jar](https://github.com/Myself5/sign/raw/master/dist/sign.jar)
+- [signapk.jar](https://github.com/Myself5/sign/raw/master/dist/signapk.jar)
 
 ### Build
 `./build.sh` or `mvn package`
